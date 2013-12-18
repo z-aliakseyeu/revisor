@@ -3,8 +3,8 @@ require 'net/http'
 module Revisor
     class Client
 
-        def initialize(uri)
-            @uri = URI.parse(uri)
+        def initialize(config)
+            @uri = URI.parse(config['uri'])
         end
 
         # ! only head request, because we have no need to check content in body

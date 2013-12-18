@@ -1,2 +1,9 @@
 client:
     uri: http://youtube.com/
+validator:
+    codes:
+        - 200
+        - 301
+        - 302
+        - 304
+    min_time: 0.3
