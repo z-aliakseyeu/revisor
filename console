@@ -3,5 +3,5 @@
 require './lib/revisor'
 
 revisor = Revisor::App.new(File.join(__dir__, 'config/config.yml'))
-revisor.execute
+puts revisor.execute
 

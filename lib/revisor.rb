@@ -1,18 +1,22 @@
-#require 'revisor/client'
-#require 'revisor/validator'
-#require 'revisor/notifier'
 require 'yaml'
+require "benchmark"
+require './lib/revisor/client'
+#require './revisor/validator'
+#require './revisor/notifier'
 
 module Revisor
     class App
-        def initialize(configuration_path)
-            @configuration = YAML::load_file(configuration_path)
+        def initialize(config_path)
+            @config = YAML::load_file(config_path)
+            @client = Revisor::Client.new(@config['client']['uri'])
         end 
 
         def execute
+            exec_time = Benchmark.measure {
+                @response = @client.request
+            }
 
-            puts @configuration
-
+            [@response.code, exec_time]
         end
     end
 end
