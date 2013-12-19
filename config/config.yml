@@ -1,3 +1,5 @@
+revisor:
+    reply_on_x: 5
 client:
     uri: http://youtube.com/
 validator:
@@ -8,4 +10,7 @@ validator:
         - 304
     min_time: 0.3
 notifier:
-    notify_via: ['email']
+    notify_with: ['email']
+    transport:
+        email: ~
+        sms: ~

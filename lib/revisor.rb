@@ -3,7 +3,7 @@ require "benchmark"
 require "revisor/client"
 require "revisor/validator"
 require "revisor/version"
-# require "revisor/notifier"
+require "revisor/notifier"
 
 module Revisor
     class App
@@ -11,6 +11,7 @@ module Revisor
             @config = YAML::load_file(config_path)
             @client = Revisor::Client.new(@config['client'])
             @validator  = Revisor::Validator.new(@config['validator'])
+            @notifier = Revisor::Notifier.new(@config['notifier'])
         end 
 
         def execute
@@ -18,7 +19,9 @@ module Revisor
                 @response = @client.request
             }
 
-            @validator.is_valid(@response, exec_time)
+            if !validator.is_valid(@response, exec_time)
+                @notifier.notify "some errors occured"
+            end
         end
     end
 end
