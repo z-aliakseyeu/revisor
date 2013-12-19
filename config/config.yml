@@ -1,5 +1,5 @@
 revisor:
-    reply_on_x: 5
+    notify_on_failures: 5
 client:
     uri: http://youtube.com/
 validator:
@@ -8,9 +8,11 @@ validator:
         - 301
         - 302
         - 304
-    min_time: 0.3
+    min_time: 0.11
 notifier:
-    notify_with: ['email']
+    notify_with: 
+        - email
+        - sms
     transport:
         email: ~
         sms: ~

@@ -3,5 +3,8 @@
 require 'revisor'
 
 revisor = Revisor::App.new(File.join(__dir__, 'config/config.yml'))
-puts revisor.execute
+while true
+    revisor.execute
+    sleep(0.25)
+end
 

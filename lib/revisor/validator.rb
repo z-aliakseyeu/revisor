@@ -7,13 +7,22 @@ module Revisor
 
         def is_valid(response, time)
             valid = false
-            
-            # checking for valid response time and code in one if... not the best solution
-            if time.real < @min_time && @valid_codes.include?(response.code.to_i)
-                valid = true
+            @message = nil
+
+            case false
+                when @valid_codes.include?(response.code.to_i)
+                    @message = "The response is not valid."
+                when time.real < @min_time
+                    @message = "Response time is large than minimal allowed."
+                else
+                    valid = true
             end
             
             valid
+        end
+
+        def get_message
+            @message
         end
     end
 end

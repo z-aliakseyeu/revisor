@@ -6,7 +6,7 @@ module Revisor
             end
 
             def notify(body)
-
+                puts body
             end
         end
     end

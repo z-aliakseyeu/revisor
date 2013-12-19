@@ -6,13 +6,14 @@ module Revisor
         
         def initialize(config)
             @notify_with = config["notify_with"]
-            @email = Revisor::Notification::Email.new(config["transport"]["email"])
-            @sms = Revisor::Notification::Sms.new(config["transport"]["sms"])
+            @transports = Hash.new
+            @transports["email"] = Revisor::Notification::Email.new(config["transport"]["email"])
+            @transports["sms"] = Revisor::Notification::Sms.new(config["transport"]["sms"])
         end
 
         def notify(message)
             @notify_with.each do |type|
-                puts type
+                @transports[type].notify(message)
             end
         end
 
