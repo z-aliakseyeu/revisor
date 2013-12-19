@@ -1,8 +1,9 @@
-require 'yaml'
+require "yaml"
 require "benchmark"
-require './lib/revisor/client'
-require './lib/revisor/validator'
-#require './revisor/notifier'
+require "revisor/client"
+require "revisor/validator"
+require "revisor/version"
+# require "revisor/notifier"
 
 module Revisor
     class App

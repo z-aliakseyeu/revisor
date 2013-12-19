@@ -7,3 +7,5 @@ validator:
         - 302
         - 304
     min_time: 0.3
+notifier:
+    notify_via: ['email']
