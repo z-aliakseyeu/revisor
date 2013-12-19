@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/revisor'
+require 'revisor'
 
 revisor = Revisor::App.new(File.join(__dir__, 'config/config.yml'))
 puts revisor.execute
