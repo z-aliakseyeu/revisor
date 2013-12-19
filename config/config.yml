@@ -14,5 +14,10 @@ notifier:
         - email
         - sms
     transport:
-        email: ~
-        sms: ~
+        email: 
+            to: 
+        sms: 
+            api_key: asdfasdfasdfasdf
+            api_secret: qwerqwerqwerqwerqwerqwer
+            phone_number: +375291111111
+            from: revisor_app
