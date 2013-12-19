@@ -11,9 +11,9 @@ module Revisor
 
             case false
                 when @valid_codes.include?(response.code.to_i)
-                    @message = "The response is not valid."
+                    @message = "The response status code is not valid."
                 when time.real < @min_time
-                    @message = "Response time is large than minimal allowed."
+                    @message = "Response time is larger than minimal allowed."
                 else
                     valid = true
             end

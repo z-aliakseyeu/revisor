@@ -30,9 +30,9 @@ module Revisor
                 end
             else
                 if (@failures >= @notify_on_failures)
-                    @failures = 0
                     @notifier.notify "Your site is works again perfectly."
                 end
+                @failures = 0
             end
         end
     end

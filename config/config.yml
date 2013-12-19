@@ -1,5 +1,5 @@
 revisor:
-    notify_on_failures: 5
+    notify_on_failures: 100
 client:
     uri: http://youtube.com/
 validator:
@@ -15,7 +15,9 @@ notifier:
         - sms
     transport:
         email: 
-            to: 
+            from: alert@revisor.com
+            subject: youtube.com site watching
+            to: vbuzrvcd@sharklasers.com
         sms: 
             api_key: asdfasdfasdfasdf
             api_secret: qwerqwerqwerqwerqwerqwer
