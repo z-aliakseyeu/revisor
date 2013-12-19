@@ -1,29 +1,33 @@
 # Revisor
 
-TODO: Write a gem description
+### Configuration
 
-## Installation
+``` yml
 
-Add this line to your application's Gemfile:
+revisor:
+    notify_on_failures: 100 # number of consecutive failures when notification will be sent
+client:
+    uri: http://youtube.com/ # uri of the site to watch for
+validator:
+    codes: # allowed status codes
+        - 200
+        - 301
+        - 302
+        - 304
+    min_time: 0.11 # minimal response time
+notifier:
+    notify_with: # which transport you will use for alerting
+        - email
+        - sms
+    transport:
+        email: # email transport configuration
+            from: alert@revisor.com
+            subject: youtube.com site watching
+            to: vbuzrvcd@sharklasers.com
+        sms: # sms transport configuration, cause i have no app_key & app_secret i haven't tested it...
+            api_key: asdfasdfasdfasdf
+            api_secret: qwerqwerqwerqwerqwerqwer
+            phone_number: +375291111111
+            from: revisor_app
 
-    gem 'revisor'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install revisor
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+```
